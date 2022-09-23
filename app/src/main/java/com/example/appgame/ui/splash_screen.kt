@@ -37,7 +37,7 @@ fun SplashScreen(navController: NavController){
                 })
         )
         delay(3000L)
-        navController.navigate("main_screen")
+        navController.navigate("home_screen")
     }
     Box(
         modifier = Modifier

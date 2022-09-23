@@ -14,8 +14,11 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.appgame.ui.SplashScreen
+import com.example.appgame.ui.home.HomeScreen
 import com.example.appgame.ui.theme.AppGameTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,7 +26,7 @@ class MainActivity : ComponentActivity() {
             AppGameTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(modifier = Modifier.fillMaxSize()) {
-                    Navigation()
+                    HomeScreen()
                 }
             }
         }
@@ -38,11 +41,6 @@ fun Navigation() {
             SplashScreen(navController = navController)
         }
 
-        // Main Screen
-        composable("main_screen") {
-            Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-                Text(text = "Main Screen")
-            }
-        }
+
     }
 }
