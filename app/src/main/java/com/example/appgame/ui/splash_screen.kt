@@ -18,6 +18,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import com.example.appgame.navigation.Screens
 import kotlinx.coroutines.delay
 
 @Composable
@@ -37,7 +38,7 @@ fun SplashScreen(navController: NavController){
                 })
         )
         delay(3000L)
-        navController.navigate("home_screen")
+        navController.navigate(Screens.Home.route)
     }
     Box(
         modifier = Modifier
