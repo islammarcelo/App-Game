@@ -14,15 +14,18 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.HiltViewModelFactory
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import com.example.appgame.R
 import com.example.appgame.data.api.model.GameItem
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 
 @Composable
 fun HomeScreen(navController: NavController) {
-    val homeViewModel = viewModel(modelClass = HomeViewModel::class.java)
+    val homeViewModel = hiltViewModel<HomeViewModel>()
     val state by homeViewModel.state.collectAsState()
     val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
     val scope = rememberCoroutineScope()
