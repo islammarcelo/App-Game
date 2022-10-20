@@ -1,4 +1,4 @@
-package com.example.appgame.data.api.model
+package com.example.appgame.data.remote.api.model
 
 
 import com.squareup.moshi.Json

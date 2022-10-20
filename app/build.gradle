@@ -96,6 +96,11 @@ dependencies {
 
     // coil
     implementation("io.coil-kt:coil-compose:1.4.0")
+
+    //Room Database
+    implementation "androidx.room:room-ktx:$room_version"
+    implementation "androidx.room:room-runtime:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
 }
 kapt {
     correctErrorTypes = true

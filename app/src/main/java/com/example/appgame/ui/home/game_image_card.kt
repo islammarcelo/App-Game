@@ -1,5 +1,6 @@
 package com.example.appgame.ui.home
 
+import android.util.Log
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
 import androidx.compose.foundation.interaction.MutableInteractionSource
@@ -19,16 +20,20 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.hilt.navigation.compose.hiltViewModel
 import coil.compose.rememberImagePainter
 import com.example.appgame.R
-import com.example.appgame.data.api.model.GameItem
+import com.example.appgame.data.local.model.Game
+import com.example.appgame.data.remote.api.model.GameItem
+import com.example.appgame.ui.favorite.FavoriteViewModel
 
 
 @Composable
 fun GameImageCard(gameItem: GameItem) {
+    val homeViewModel = hiltViewModel<HomeViewModel>()
     val imagerPainter = rememberImagePainter(data = gameItem.thumbnail)
     val interactionSource = remember { MutableInteractionSource() }
-    val isPressed by interactionSource.collectIsPressedAsState()
+//    val isPressed by interactionSource.collectIsPressedAsState()
     Card(
         shape = MaterialTheme.shapes.medium,
         modifier = Modifier
@@ -70,7 +75,19 @@ fun GameImageCard(gameItem: GameItem) {
                     var isPressed by remember { mutableStateOf(false) }
 
                     IconButton(
-                        onClick = { isPressed = !isPressed }, interactionSource = interactionSource,
+                        onClick = {
+                            val game = Game(gameItem.title,gameItem.releaseDate,gameItem.thumbnail,gameItem.id)
+                            if (!isPressed) {
+                                homeViewModel.insertGame(game)
+                                Log.d("msg","Add GAme")
+                            }
+                            else if (isPressed){
+                                 homeViewModel.deleteGame(game)
+                                Log.d("msg","delete GAme")
+                            }
+                            isPressed = !isPressed
+                        },
+                        interactionSource = interactionSource,
                     ) {
                         Icon(
                             painter = painterResource(id = if (isPressed) R.drawable.like else R.drawable.dis_like),

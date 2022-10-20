@@ -14,13 +14,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 
 import androidx.compose.ui.unit.dp
-import androidx.hilt.navigation.HiltViewModelFactory
 import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import com.example.appgame.R
-import com.example.appgame.data.api.model.GameItem
-import dagger.hilt.android.lifecycle.HiltViewModel
+import com.example.appgame.data.remote.api.model.GameItem
 import kotlinx.coroutines.launch
 
 @Composable

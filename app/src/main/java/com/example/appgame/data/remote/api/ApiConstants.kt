@@ -1,4 +1,4 @@
-package com.example.appgame.data.api
+package com.example.appgame.data.remote.api
 
 object ApiConstants {
     const val BASE_URL = "https://www.freetogame.com/api/"

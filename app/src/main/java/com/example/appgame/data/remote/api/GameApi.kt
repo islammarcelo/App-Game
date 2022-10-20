@@ -1,6 +1,6 @@
-package com.example.appgame.data.api
+package com.example.appgame.data.remote.api
 
-import com.example.appgame.data.api.model.GameItem
+import com.example.appgame.data.remote.api.model.GameItem
 import retrofit2.http.GET
 
 interface GameApi {
